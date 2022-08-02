@@ -31,18 +31,18 @@ def get_input_to_calcluate_bmi():
     "This function gets the input from the user"    
     print("Enter the weight of the user in Kgs")    
     # Get the weight of the user through keyboard
-    weight_of_the_user = input()
+    weight_of_the_user = float(input())
 
     # Get the height of the user through keyboard
     print("Enter the height of the user in meters")
-    height_of_the_user = input()
+    height_of_the_user = float(input())
 
     return weight_of_the_user,height_of_the_user
 
 def calculate_bmi(weight_of_the_user,height_of_the_user):
     "This function calculates the BMI"
     # Calculate the BMI of the user according to height and weight
-    bmi_of_the_user = weight_of_the_user/(height_of_the_user * height_of_the_user)    
+    bmi_of_the_user = int(weight_of_the_user/(height_of_the_user * height_of_the_user))   
 
     # Return the BMI of the user to the called function
     return bmi_of_the_user
@@ -50,13 +50,17 @@ def calculate_bmi(weight_of_the_user,height_of_the_user):
 def check_user_bmi_category(bmi):
     "This function checks if the user is underweight, normal, overweight or obese"    
     if bmi <= 18.5:
-         print("The user is considered as underweight")
+         MEGENTA = '\033[35m'
+         print(MEGENTA+"Oh No!!! Underweight"+"\U0001F61F")
     elif bmi > 18.5 and bmi < 24.9:
-         print("The user is considered as normal weight")
+         GREEN = '\033[32m'
+         print(GREEN+"Hurrayyy!!! Normalweight"+"\U0001F60E")
     elif bmi > 25 and bmi <= 29.9:
-        print("The user is considered as overweight")
+         YELLOW = '\033[33m'
+         print(YELLOW+"Ufff!!! Overweight"+"\U0001F62D")
     elif bmi >=30:
-        print("The user is considered as obese")
+         RED = '\033[31m'
+         print(RED+"OMG!!! Obese"+"\U0001F975")
     
 # Program starts here
 if __name__ == "__main__":    
