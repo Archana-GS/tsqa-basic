@@ -42,7 +42,7 @@ def get_input_to_calcluate_bmi():
 def calculate_bmi(weight_of_the_user,height_of_the_user):
     "This function calculates the BMI"
     # Calculate the BMI of the user according to height and weight
-    bmi_of_the_user = round(weight_of_the_user/height_of_the_user/height_of_the_user,2)  
+    bmi_of_the_user = round(weight_of_the_user/(height_of_the_user * height_of_the_user),2)
 
     # Return the BMI of the user to the called function
     return bmi_of_the_user
@@ -50,28 +50,36 @@ def calculate_bmi(weight_of_the_user,height_of_the_user):
 def check_user_bmi_category(bmi):
     "This function checks if the user is underweight, normal, overweight or obese"    
     if bmi < 18.5:
-         MEGENTA = '\033[35m'
-         print(MEGENTA+"Oh No!!! Underweight"+"\U0001F61F")
-         print("The ideal BMI range is : 18.5 to 25 Kg/m\u00b2")
+         from colored import fg,attr
+         print("{0}Oh No!!! UnderWeight{1}".format(fg('blue'),attr(0)))
+         print("\N{crying face}")
+         print("{0}The Ideal BMI Range is : 18.5 to 25 Kg/m\u00b2{1}".format(fg('blue'),attr(0)))
          Gain_Weight = round((18.5*height_of_the_user*height_of_the_user-weight_of_the_user),2) 
-         print("Weight to be gained to reach the ideal BMI is :",Gain_Weight,"Kg")
+         print("{0}Weight to be Gained to Reach the Ideal BMI is :{1}".format(fg('blue'),attr(0)),Gain_Weight,"Kg")
+
     elif bmi >= 18.5 and bmi <= 25:
-         GREEN = '\033[32m'
-         print(GREEN+"Hurrayyy!!! Normalweight"+"\U0001F60E")
-         print("The ideal BMI range is : 18.5 to 25 Kg/m\u00b2")
-         print("Keep it up")
+         from colored import fg,attr
+         print("{0}Hurrayyy!!! NormalWeight{1}".format(fg('green'),attr(0)))
+         print("\N{smiling face with sunglasses}")
+         print("{0}The Ideal BMI Range is : 18.5 to 25 Kg/m\u00b2{1}".format(fg('green'),attr(0)))
+         print("{0}Good Keep It Up{1}".format(fg('green'),attr(0)))
+
     elif bmi > 25 and bmi <= 29.99:
-         YELLOW = '\033[33m'
-         print(YELLOW+"Ohhh!!! Overweight"+"\U0001F62D")
-         print("The ideal BMI range is : 18.5 to 25 Kg/m\u00b2")
+         from colored import fg,attr
+         import emoji
+         print("{0}Ohhh!!! OverWeight{1}".format(fg('yellow'),attr(0)))
+         print("\N{loudly crying face}")
+         print("{0}The Ideal BMI Range is : 18.5 to 25 Kg/m\u00b2{1}".format(fg('yellow'),attr(0)))
          Reduce_Weight = round((weight_of_the_user-height_of_the_user*height_of_the_user*25),2)
-         print("Weight to be reduced to reach the ideal BMI is :",Reduce_Weight,"Kg")
+         print("{0}Weight to be Reduced to Reach the Ideal BMI is :{1}".format(fg('yellow'),attr(0)),Reduce_Weight,"Kg")
+
     elif bmi >=30:
-         RED = '\033[31m'
-         print(RED+"OMG!!! Obese"+"\U0001F975")
-         print("The ideal BMI range is : 18.5 to 25 Kg/m\u00b2")
+         from colored import fg,attr
+         print("{0}OMG!!! Obese{1}".format(fg('red'),attr(0)))
+         print("\N{face screaming in fear}")
+         print("{0}The Ideal BMI Range is : 18.5 to 25 Kg/m\u00b2{1}".format(fg('red'),attr(0)))
          Reduce_Weight = round((weight_of_the_user-height_of_the_user*height_of_the_user*25),2)
-         print("Weight to be reduced to reach the ideal BMI is :",Reduce_Weight,"Kg")
+         print("{0}Weight to be Reduced to Reach the Ideal BMI is :{1}".format(fg('red'),attr(0)),Reduce_Weight,"Kg")
     
 # Program starts here
 if __name__ == "__main__":    
