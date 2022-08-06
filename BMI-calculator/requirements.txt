@@ -3,4 +3,3 @@ colored==1.4.3
 configparser==5.2.0
 emoji==2.0.0
 virtualenv==20.16.3
-
